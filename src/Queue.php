@@ -59,7 +59,7 @@ class Queue extends \SplQueue {
         }
         $rcpt['email'] = $email;
 
-        return $this->addRecipients([$rcpt]);
+        return $this->addRecipients(array($rcpt));
     }
 
     /**
@@ -75,7 +75,7 @@ class Queue extends \SplQueue {
             throw new Exception("Error: You must pass at least one valid email address.");
             // Else, if single and valid
         } else if (!is_array($rcpts)) {
-            $this[] = ['email' => $rcpts];
+            $this[] = array('email' => $rcpts);
             // Else if an associative array of scalar values
         } else if (is_array($rcpts) && isset($rcpts['email'])) {
             if (!$this->isValid($rcpts['email'])) {
@@ -88,7 +88,7 @@ class Queue extends \SplQueue {
                 if (!$this->isValid($email)) {
                     throw new Exception("Error: The email address '" . $email . "' is not valid.");
                 }
-                $this[] = ['email' => $email];
+                $this[] = array('email' => $email);
             }
             // Else, if an array of arrays
         } else if (is_array($rcpts) && isset($rcpts[0]) && is_array($rcpts[0])) {

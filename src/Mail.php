@@ -644,8 +644,8 @@ class Mail {
 
         $regEx1 = '/[a-zA-Z0-9\.\-\_+%]+@[a-zA-Z0-9\-\_\.]+\.[a-zA-Z]{2,4}/';
         $regEx2 = '/[a-zA-Z0-9\.\-\_+%]+@localhost/';
-        $matches1 = [];
-        $matches2 = [];
+        $matches1 = array();
+        $matches2 = array();
         preg_match_all($regEx1, $to, $matches1);
         preg_match_all($regEx2, $to, $matches2);
 
